@@ -37,8 +37,8 @@ def getClinicDetail(clinic_id):
      'specialty': specialty})
   return clinic
 
-@app.route('/clinic/<int:clinic_id>/json')
-def showClinicJSON(clinic_id):
+@app.route('/clinic/<int:clinic_id>/')
+def showClinic(clinic_id):
   clinic = getClinicDetail(clinic_id)
   if clinic:
     return render_template('clinic_detail.html', css_file='css/basic.css', header_img='img/clinic_detail.jpg',
@@ -46,8 +46,8 @@ def showClinicJSON(clinic_id):
   else:
     return 'No data associalted with clinic id of %d' % clinic_id
 
-@app.route('/clinic/<int:clinic_id>/')
-def showClinic(clinic_id):
+@app.route('/clinic/<int:clinic_id>/json')
+def showClinicJSON(clinic_id):
   clinic = getClinicDetail(clinic_id)
   if clinic:
     return jsonify(clinic=clinic)
