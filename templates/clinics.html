@@ -1,0 +1,27 @@
+{% extends "base_header.html" %}
+{% block body %}
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            {% for c in clinics %}
+                <div>
+                    <a href="{{ url_for('showClinic',
+        clinic_id=c._id)}}">
+                        <h2>
+                            {{ c.clinic_name }}
+                        </h2>
+                    </a>
+                    <h3>
+                        {{ c.address }}
+                    </h3>
+                    <p>{{ c.phone }}</p>
+                </div>
+                <hr>
+            {% endfor %}
+
+        </div>
+        </div>
+    </div>
+   
+{% endblock %}

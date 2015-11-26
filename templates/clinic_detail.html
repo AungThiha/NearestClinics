@@ -1,0 +1,24 @@
+{% extends "base_header.html" %}
+{% block body %}
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            {% for d in doctors %}
+                <div>
+                    <h2>
+                        {{ d.doctor_name }}
+                    </h2>
+                    <h3>
+                        {{ d.specialty }}
+                    </h3>
+                    <p>{{ d.degree }}</p>
+                </div>
+                <hr>
+            {% endfor %}
+
+        </div>
+        </div>
+    </div>
+   
+{% endblock %}

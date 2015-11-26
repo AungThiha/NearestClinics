@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('{{ url_for('static',
+    filename=header_img)}}')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="page-heading">
+                    <h1>{{ h1 }}</h1>
+                    <hr class="home">
+                    <h2>{{ h2 }}</h2>
+                    {% if p %}
+                        <p> {{p}}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+    {% block body %}
+    {% endblock%}
+
+<aside class="bg-dark">
+    <div class="container text-center">
+        <div class="call-to-action">
+            <a href="http://aungthiha.co" class="copyright">Copyright &copy; Aung Thiha 2015</a>
+        </div>
+    </div>
+</aside>
+
+{% endblock %}
