@@ -20,7 +20,7 @@ def showClinicsJSON():
 
 @app.route('/doctors/')
 def showDoctors():
-  return render_template('doctors.html', css_file='css/basic.css', header_img='img/doctors.jpg', h1='doctors', h2='Check out docotrs from Mandalay', doctors=doctors, sp=[s['specialty_name'] for s in specialties])
+  return render_template('doctors.html', css_file='css/basic.css', header_img='img/doctors.jpg', h1='doctors', h2='Check out doctors from Mandalay', doctors=doctors, sp=[s['specialty_name'] for s in specialties])
 
 def getClinicDetail(clinic_id):
   if not (clinic_id > 0 and clinic_id < 24):
@@ -38,7 +38,6 @@ def getClinicDetail(clinic_id):
   return clinic
 
 @app.route('/clinic/<int:clinic_id>/json')
-@app.route('/clinic/<int:clinic_id>/')
 def showClinicJSON(clinic_id):
   clinic = getClinicDetail(clinic_id)
   if clinic:
