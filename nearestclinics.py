@@ -57,7 +57,7 @@ def showClinicJSON(clinic_id):
 # Labs testing
 @app.route('/testNames')
 def testNames():
-  with open('/data/testNames.json', 'r') as content_file:
+  with open('./data/testNames.json', 'r') as content_file:
     content = content_file.read()
   return content, 200, {'Content-Type': 'json/application; charset=utf-8'}
 
