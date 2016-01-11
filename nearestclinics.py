@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, render_template, url_for, jsonify
+from flask import Flask, render_template, url_for, jsonify, response
 from data.clinic_detail import clinic_detail
 from data.clinics import clinics
 from data.doctors import doctors
@@ -53,6 +53,13 @@ def showClinicJSON(clinic_id):
     return jsonify(clinic=clinic)
   else:
     return 'No data associalted with clinic id of %d' % clinic_id
+
+# Labs testing
+@app.route('/testNames')
+def testNames():
+  with open('/data/testNames.json', 'r') as content_file:
+    content = content_file.read()
+  return content, 200, {'Content-Type': 'json/application; charset=utf-8'}
 
 if __name__ == '__main__':
   app.debug = True
