@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, render_template, url_for, jsonify
+from flask import Flask, render_template, url_for, jsonify, request
 from data.clinic_detail import clinic_detail
 from data.clinics import clinics
 from data.doctors import doctors
@@ -60,6 +60,15 @@ def testNames():
   with open('./data/testNames.json', 'r') as content_file:
     content = content_file.read()
   return content, 200, {'Content-Type': 'application/json; charset=utf-8'}
+
+@app.route('/auth')
+def authentication():
+  phone_no = request.args.get('phone_no')
+  pin = request.args.get('pin')
+  if phone_no == '09970392283' and pin == '123456':
+    return '"True"'
+  else:
+    return '"False"'
 
 if __name__ == '__main__':
   app.debug = True
