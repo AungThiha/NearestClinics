@@ -61,6 +61,12 @@ def testNames():
     content = content_file.read()
   return content, 200, {'Content-Type': 'application/json; charset=utf-8'}
 
+@app.route('/referer')
+def referer():
+  with open('./data/referer.json', 'r') as content_file:
+    content = content_file.read()
+  return content, 200, {'Content-Type': 'application/json; charset=utf-8'}
+
 @app.route('/auth')
 def authentication():
   phone_no = request.args.get('phone_no')
