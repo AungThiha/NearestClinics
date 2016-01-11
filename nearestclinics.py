@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, render_template, url_for, jsonify, response
+from flask import Flask, render_template, url_for, jsonify
 from data.clinic_detail import clinic_detail
 from data.clinics import clinics
 from data.doctors import doctors
@@ -59,7 +59,7 @@ def showClinicJSON(clinic_id):
 def testNames():
   with open('./data/testNames.json', 'r') as content_file:
     content = content_file.read()
-  return content, 200, {'Content-Type': 'json/application; charset=utf-8'}
+  return content, 200, {'Content-Type': 'application/json; charset=utf-8'}
 
 if __name__ == '__main__':
   app.debug = True
