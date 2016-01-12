@@ -70,8 +70,9 @@ def referer():
 @app.route('/auth')
 def authentication():
   phone_no = request.args.get('phone_no')
+  numbers = ['09970392283', '09970392284']
   pin = request.args.get('pin')
-  if phone_no == '09970392283' and pin == '123456':
+  if phone_no in numbers and pin == '123456':
     return '"True"'
   else:
     return '"False"'
