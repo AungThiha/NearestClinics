@@ -59,13 +59,13 @@ def showClinicJSON(clinic_id):
 def testNames():
   with open('./data/testNames.json', 'r') as content_file:
     content = content_file.read()
-  return content, 200, {'Content-Type': 'application/json; charset=utf-8'}
+  return content, 200, {'Content-Type': 'application/json'}
 
 @app.route('/referer')
 def referer():
   with open('./data/referer.json', 'r') as content_file:
     content = content_file.read()
-  return content, 200, {'Content-Type': 'application/json; charset=utf-8'}
+  return content, 200, {'Content-Type': 'application/json'}
 
 @app.route('/auth')
 def authentication():
